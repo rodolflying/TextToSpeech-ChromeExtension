@@ -8,16 +8,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     func: getSelectedText
                 }, (results) => {
                     if (results && results[0] && results[0].result) {
-                        // Get available voices and select a specific one
-                        chrome.tts.getVoices(function(voices) {
-                            // Uncomment the next lines if you want to print available voices to the console
-                            // for (var i = 0; i < voices.length; i++) {
-                            //     console.log(voices[i].voiceName);
-                            // }
-                            // Use a specific voice to read the text
-                            // Replace 'Google US English' with the voice name you prefer
-                            chrome.tts.speak(results[0].result, {'voiceName': 'Google US English'});
-                        });
+                        var textChunks = chunkText(results[0].result, 150); // Split into chunks of 150 characters
+                        var speakChunk = function() {
+                            if (textChunks.length === 0) return;
+                            var chunk = textChunks.shift();
+                            chrome.tts.speak(chunk, {'voiceName': 'Google US English', 'onEvent': function(event) {
+                                if (event.type === 'end') {
+                                    speakChunk();
+                                }
+                            }});
+                        };
+                        speakChunk();
                     }
                 });
             } else {
@@ -28,5 +29,18 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 function getSelectedText() {
+    console.log(window.getSelection().toString());
     return window.getSelection().toString();
+}
+
+function chunkText(text, maxLength) {
+    var chunks = [];
+    while (text.length > maxLength) {
+        var index = text.lastIndexOf(' ', maxLength);
+        var chunk = text.slice(0, index);
+        chunks.push(chunk);
+        text = text.slice(index);
+    }
+    chunks.push(text);
+    return chunks;
 }
