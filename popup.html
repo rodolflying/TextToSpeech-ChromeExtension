@@ -1,15 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Text-to-Speech</title>
-	<style>
-    body {
-		width: 200px;
-    }
-	</style>
+    <meta charset="UTF-8">
+    <title>AutoRead Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1e1e24;
+            --surface-color: #2b2b35;
+            --primary-color: #6366f1;
+            --primary-hover: #4f46e5;
+            --danger-color: #ef4444;
+            --danger-hover: #dc2626;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+        body {
+            width: 320px;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 600;
+            background: linear-gradient(90deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p {
+            margin: 4px 0 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .control-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: var(--surface-color);
+            border: 1px solid #3f3f46;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+        select:focus {
+            border-color: var(--primary-color);
+        }
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        input[type="range"] {
+            flex: 1;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+        .speed-value {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            width: 35px;
+            text-align: right;
+        }
+        .header-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            flex: 1;
+            padding: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        #playBtn {
+            background-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+        #playBtn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+        #stopBtn {
+            background-color: var(--surface-color);
+            border: 1px solid #3f3f46;
+            color: var(--text-main);
+        }
+        #stopBtn:hover {
+            background-color: #3f3f46;
+            border-color: #52525b;
+        }
+        .icon {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
-	<button id="readText">Read Selected Text</button>
-	<script src="popup.js"></script>
+    <div class="header">
+        <h1>AutoRead Pro</h1>
+        <p>Smart Text-to-Speech</p>
+    </div>
+
+    <div class="control-group">
+        <label for="voiceSelect">Select Voice</label>
+        <select id="voiceSelect">
+            <option value="auto">Auto-Detect Language</option>
+            <!-- Voices populate here -->
+        </select>
+    </div>
+
+    <div class="control-group">
+        <div class="header-label">
+            <label for="speedSelect">Reading Speed</label>
+            <span class="speed-value" id="speedValue">1.0x</span>
+        </div>
+        <div class="slider-group">
+            <input type="range" id="speedSelect" min="0.5" max="3" step="0.1" value="1">
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button id="playBtn"><span class="icon">▶</span> Read</button>
+        <button id="stopBtn"><span class="icon">⏹</span> Stop</button>
+    </div>
+
+    <script src="popup.js"></script>
 </body>
 </html>
