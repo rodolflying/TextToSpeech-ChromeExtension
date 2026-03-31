@@ -1,51 +1,51 @@
 # AutoRead Pro 🎧✨
 
-AutoRead Pro es una extensión de navegador moderna y avanzada de Text-to-Speech (TTS) diseñada para leer cualquier texto seleccionado en la web con una fluidez y naturalidad superior. A diferencia de los lectores tradicionales robóticos, AutoRead Pro utiliza técnicas modernas de procesamiento de texto para mantener la prosodia, las pausas respiratorias naturales y la entonación.
+AutoRead Pro is a modern and advanced browser extension for Text-to-Speech (TTS), designed to read any selected text on the web with superior fluency and naturalness. Unlike traditional robotic readers, AutoRead Pro uses modern text processing techniques to maintain prosody, natural breathing pauses, and proper intonation.
 
-## Características Principales 🚀
-- **Prosodia Natural:** Procesa el texto por párrafos (en lugar de partir por cada punto o coma), permitiendo que la inteligencia artificial de las voces del sistema conserve la entonación y fluidez humana.
-- **Detección Automática de Idiomas:** Analiza el texto seleccionado en tiempo real y asigna automáticamente la voz nativa correcta al idioma detectado.
-- **Limpieza Inteligente de Texto:** Omite la lectura literal de correos o URLs largas (`https://...`) y transforma los puntos de listas (`-`, `•`) en ligeras pausas para una escucha agradable.
-- **Control de Velocidad Extendido:** Control deslizante fluido para ajustar la velocidad de lectura desde **0.5x hasta 3.0x**.
-- **Memoria de Preferencias:** Guarda automáticamente tu voz preferida y velocidad elegida localmente en el almacenamiento del navegador para tu próxima sesión.
-- **Interfaz Premium Dark Mode:** Panel moderno, atractivo y limpio.
-
----
-
-## 🛠️ Instrucciones de Instalación (Modo Desarrollador)
-
-Dado que esta extensión se instala a partir de su código fuente (descomprimida), los pasos varían ligeramente dependiendo de tu navegador basado en Chromium.
-
-### En Google Chrome
-1. Abre tu navegador y escribe `chrome://extensions/` en la barra de direcciones.
-2. En la esquina superior derecha, activa el interruptor que dice **"Modo de desarrollador"** (Developer mode).
-3. Haz clic en el botón **"Cargar descomprimida"** (Load unpacked) que aparecerá en la parte superior izquierda.
-4. Selecciona la carpeta `AutoRead` (esta misma carpeta donde descargaste los archivos).
-5. ¡Listo! Te recomiendo hacer clic en el ícono de rompecabezas 🧩 arriba a la derecha para "Fijar" (Pin) AutoRead Pro en tu barra.
-
-### En Microsoft Edge
-1. Abre tu navegador y escribe `edge://extensions/` en la barra de direcciones.
-2. En el panel izquierdo inferior, activa el interruptor **"Modo de desarrollador"**.
-3. Haz clic en el nuevo botón **"Cargar extensión sin empaquetar"** (Load unpacked) que aparecerá arriba.
-4. Navega hasta la carpeta del proyecto y selecciónala.
-
-### En Brave
-1. Escribe `brave://extensions/` en tu barra de direcciones.
-2. Arriba a la derecha, activa la casilla de **"Developer mode"**.
-3. Haz clic en el botón **"Load unpacked"** en la parte superior izquierda.
-4. Selecciona la carpeta del proyecto.
+## Main Features 🚀
+- **Natural Prosody:** Processes text by paragraphs (instead of splitting at every period or comma), allowing the system's AI voices to preserve human-like intonation and fluency.
+- **Auto Language Detection:** Analyzes selected text in real-time and automatically assigns the correct native voice for the detected language.
+- **Smart Text Sanitization:** Skips literal reading of emails or long URLs (`https://...`) and transforms list bullets (`-`, `•`) into natural pauses for an enjoyable listening experience.
+- **Extended Speed Control:** Smooth slider to adjust reading speed from **0.5x up to 3.0x**.
+- **Preference Memory:** Automatically saves your preferred voice and chosen speed locally in the browser storage for your next session.
+- **Premium Dark Mode Interface:** Modern, attractive, and clean panel.
 
 ---
 
-## 📖 Cómo utilizarla
-1. Entra a cualquier sitio web o artículo.
-2. Selecciona arrastrando con el ratón el fragmento de texto que deseas escuchar.
-3. Haz clic en el ícono de AutoRead Pro en tu barra de extensiones.
-4. Ajusta tu voz (puedes dejarlo en "Auto-Detect Language") y tu velocidad preferida.
-5. Haz clic en el botón **"▶ Read"**.
-6. Puedes detener la lectura en cualquier momento haciendo clic en **"⏹ Stop"**. *(Nota: Si deseas aplicar un cambio drástico de velocidad, detén la lectura, ajusta el slider y vuelve a pulsar Read).*
+## 🛠️ Installation Instructions (Developer Mode)
 
-## Tecnologías Utilizadas
-- **HTML5 & Vanilla CSS:** Interfaz estéticamente enriquecida con Google Fonts (Inter).
-- **JavaScript (ES6):** Motor de fondo con Workers asíncronos en Manifest V3.
+Since this extension is installed from its source code (unpacked), the steps vary slightly depending on your Chromium-based browser.
+
+### In Google Chrome
+1. Open your browser and type `chrome://extensions/` in the address bar.
+2. In the top right corner, toggle the **"Developer mode"** switch on.
+3. Click the **"Load unpacked"** button that appears in the top left.
+4. Select the `AutoRead` folder (the folder where you downloaded the files).
+5. Done! I recommend clicking the puzzle icon 🧩 in the top right to "Pin" AutoRead Pro to your bar.
+
+### In Microsoft Edge
+1. Open your browser and type `edge://extensions/` in the address bar.
+2. In the bottom left panel, turn on the **"Developer mode"** switch.
+3. Click the new **"Load unpacked extension"** button that appears at the top.
+4. Navigate to the project folder and select it.
+
+### In Brave
+1. Type `brave://extensions/` in your address bar.
+2. In the top right, check the **"Developer mode"** box.
+3. Click the **"Load unpacked"** button at the top left.
+4. Select the project folder.
+
+---
+
+## 📖 How to Use
+1. Go to any website or article.
+2. Select the text snippet you want to hear by dragging your mouse.
+3. Click the AutoRead Pro icon in your extensions bar.
+4. Adjust your voice (you can leave it on "Auto-Detect Language") and your preferred speed.
+5. Click the **"▶ Read"** button.
+6. You can stop the reading at any time by clicking **"⏹ Stop"**. *(Note: If you want to apply a drastic speed change, stop the reading, adjust the slider, and press Read again).*
+
+## Built With
+- **HTML5 & Vanilla CSS:** Aesthetically enriched interface with Google Fonts (Inter).
+- **JavaScript (ES6):** Background engine with asynchronous workers in Manifest V3.
 - **Chrome APIs:** `chrome.tts`, `chrome.scripting`, `chrome.storage.local`, `chrome.i18n`.
